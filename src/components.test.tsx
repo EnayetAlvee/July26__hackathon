@@ -1,0 +1,3 @@
+import{render,screen}from'@testing-library/react';import{MemoryRouter}from'react-router-dom';import{describe,expect,it}from'vitest';import{LanguageProvider}from'./i18n';import{Timeline,VerifyLab}from'./pages';
+const wrap=(x:React.ReactNode)=>render(<LanguageProvider><MemoryRouter>{x}</MemoryRouter></LanguageProvider>);
+describe('important views',()=>{it('renders timeline events',()=>{wrap(<Timeline/>);expect(screen.getByText('Early student mobilisation')).toBeInTheDocument()});it('renders readiness result',()=>{wrap(<VerifyLab/>);expect(screen.getByText('Insufficient context')).toBeInTheDocument()})});

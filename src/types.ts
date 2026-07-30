@@ -1,0 +1,6 @@
+export type Localized={en:string;bn:string};
+export type VerificationStatus='Source linked'|'Corroborated'|'Community submitted'|'Under review'|'Disputed'|'Archived demonstration';
+export interface Evidence{id:string;eventId:string;titleEn:string;titleBn:string;summaryEn:string;summaryBn:string;date:string;locationEn:string;locationBn:string;sourceType:string;sourceName:string;sourceUrl?:string;archivedUrl?:string;corroboratingSourceIds:string[];verificationStatus:VerificationStatus;consentStatus:string;reuseLicence:string;submittedByType:string;createdAt:string;updatedAt:string;integrityHash:string;demoOnly:boolean;notesEn:string;notesBn:string}
+export interface Event{id:string;title:Localized;summary:Localized;date:string;location:Localized;category:string;status:VerificationStatus;evidenceIds:string[];storyId:string;sourceCount:number;demoOnly:boolean}
+export interface Story{id:string;title:Localized;dek:Localized;context:Localized;moments:Localized[];known:Localized;uncertain:Localized;matters:Localized;reflection:Localized;evidenceIds:string[];composite:boolean}
+export interface ArchivePack{format:'shakkho-archive-pack';version:1;exportedAt:string;language:string;records:Evidence[];packFingerprint:string}
